@@ -1,14 +1,41 @@
 {
     "summary": {
-        "total_added": 2,
+        "total_added": 1,
         "total_deleted": 0,
-        "total_modified": 3
+        "total_modified": 6
     },
     "sector_wise_changes": {
+        "Discipline & Conduct": {
+            "added": [],
+            "deleted": [],
+            "modified": [
+                {
+                    "old": "Attendance Students must maintain at least 75% attendance in each course to be eligible for appearing in the final examination.",
+                    "new": "Attendance Students must maintain at least 80% attendance in each course to be eligible for appearing in the final examination.",
+                    "similarity": 0.9741254448890686
+                },
+                {
+                    "old": "Discipline Students must adhere to university discipline policies. Any misconduct may lead to suspension.",
+                    "new": "Discipline Students must adhere to university discipline policies. Severe misconduct may lead to suspension or expulsion.",
+                    "similarity": 0.9636955857276917
+                }
+            ]
+        },
         "Examinations & Evaluation": {
             "added": [],
             "deleted": [],
-            "modified": []
+            "modified": [
+                {
+                    "old": "The evaluation consists of Continuous Assessment Tests (CAT) and Final Assessment Test (FAT).",
+                    "new": "The evaluation consists of Continuous Assessment Tests (CAT), assignments, and Final Assessment Test (FAT).",
+                    "similarity": 0.973158061504364
+                },
+                {
+                    "old": "The weightage of CAT is 40% and FAT is 60%.",
+                    "new": "The weightage of CAT is 30%, assignments 20%, and FAT is 50%.",
+                    "similarity": 0.9305648803710938
+                }
+            ]
         },
         "Academics & Curriculum": {
             "added": [],
@@ -17,96 +44,223 @@
                 {
                     "old": "Registration Students must register for courses at the beginning of each semester through the academic portal.",
                     "new": "Registration Students must register for courses at the beginning of each semester through the academic portal. Late registration is allowed with a penalty fee.",
-                    "similarity": 0.7587504386901855
+                    "similarity": 0.7587505578994751
                 }
             ]
         },
         "Finance & Fees": {
             "added": [
-                "A late fee of ₹1000 will be charged after the deadline.",
                 "Scholarship Eligible students may receive merit-based scholarships based on academic performance."
             ],
             "deleted": [],
             "modified": [
                 {
                     "old": "Fee Payment Students must pay the semester fees before the deadline to avoid penalties.",
-                    "new": "Fee Payment Students must pay the semester fees before the deadline.",
-                    "similarity": 0.9615001678466797
-                }
-            ]
-        },
-        "Discipline & Conduct": {
-            "added": [],
-            "deleted": [],
-            "modified": [
-                {
-                    "old": "Discipline Students must adhere to university discipline policies. Any misconduct may lead to suspension.",
-                    "new": "Discipline Students must adhere to university discipline policies. Severe misconduct may lead to suspension or expulsion.",
-                    "similarity": 0.963695764541626
+                    "new": "Fee Payment Students must pay the semester fees before the deadline. A late fee of ₹1000 will be charged after the deadline.",
+                    "similarity": 0.8619405627250671
                 }
             ]
         }
     },
     "analysis": {
-        "Examinations & Evaluation": [],
+        "Discipline & Conduct": [
+            {
+                "old_rule": "Attendance Students must maintain at least 75% attendance in each course to be eligible for appearing in the final examination.",
+                "new_rule": "Attendance Students must maintain at least 80% attendance in each course to be eligible for appearing in the final examination.",
+                "added_keywords": [
+                    "80%"
+                ],
+                "removed_keywords": [
+                    "75%"
+                ],
+                "old_numbers": [
+                    "75"
+                ],
+                "new_numbers": [
+                    "80"
+                ],
+                "predicted_cause": "to reduce absenteeism and ensure students meet minimum academic engagement standards | to reduce absenteeism and ensure students meet minimum academic engagement standards | to reduce absenteeism and ensure students meet minimum academic engagement standards"
+            },
+            {
+                "old_rule": "Discipline Students must adhere to university discipline policies. Any misconduct may lead to suspension.",
+                "new_rule": "Discipline Students must adhere to university discipline policies. Severe misconduct may lead to suspension or expulsion.",
+                "added_keywords": [
+                    "suspension",
+                    "expulsion.",
+                    "severe",
+                    "or"
+                ],
+                "removed_keywords": [
+                    "any",
+                    "suspension."
+                ],
+                "old_numbers": [],
+                "new_numbers": [],
+                "predicted_cause": "to compensate for administrative overhead and operational expenses | to ensure financial sustainability, manage institutional costs, and support infrastructure development | to ensure financial sustainability, manage institutional costs, and support infrastructure development"
+            }
+        ],
+        "Examinations & Evaluation": [
+            {
+                "old_rule": "The evaluation consists of Continuous Assessment Tests (CAT) and Final Assessment Test (FAT).",
+                "new_rule": "The evaluation consists of Continuous Assessment Tests (CAT), assignments, and Final Assessment Test (FAT).",
+                "added_keywords": [
+                    "assignments,",
+                    "(cat),"
+                ],
+                "removed_keywords": [
+                    "(cat)"
+                ],
+                "old_numbers": [],
+                "new_numbers": [],
+                "predicted_cause": "to better measure student performance across multiple dimensions like assignments and projects | to better measure student performance across multiple dimensions like assignments and projects | to improve assessment fairness, reduce over-dependence on final exams, and promote continuous learning"
+            },
+            {
+                "old_rule": "The weightage of CAT is 40% and FAT is 60%.",
+                "new_rule": "The weightage of CAT is 30%, assignments 20%, and FAT is 50%.",
+                "added_keywords": [
+                    "30%,",
+                    "50%.",
+                    "20%,",
+                    "assignments"
+                ],
+                "removed_keywords": [
+                    "60%.",
+                    "40%"
+                ],
+                "old_numbers": [
+                    "40",
+                    "60"
+                ],
+                "new_numbers": [
+                    "30",
+                    "20",
+                    "50"
+                ],
+                "predicted_cause": "to improve assessment fairness, reduce over-dependence on final exams, and promote continuous learning | to align evaluation with modern education practices and industry expectations | to better measure student performance across multiple dimensions like assignments and projects"
+            }
+        ],
         "Academics & Curriculum": [
             {
                 "old_rule": "Registration Students must register for courses at the beginning of each semester through the academic portal.",
                 "new_rule": "Registration Students must register for courses at the beginning of each semester through the academic portal. Late registration is allowed with a penalty fee.",
                 "added_keywords": [
-                    "is",
-                    "with",
-                    "penalty",
-                    "late",
-                    "allowed",
                     "fee.",
-                    "a"
+                    "is",
+                    "late",
+                    "penalty",
+                    "a",
+                    "with",
+                    "allowed"
                 ],
                 "removed_keywords": [],
                 "old_numbers": [],
-                "new_numbers": []
+                "new_numbers": [],
+                "predicted_cause": "to compensate for administrative overhead and operational expenses | to ensure financial sustainability, manage institutional costs, and support infrastructure development | to discourage late payments and ensure timely fee collection"
             }
         ],
         "Finance & Fees": [
             {
                 "old_rule": "Fee Payment Students must pay the semester fees before the deadline to avoid penalties.",
-                "new_rule": "Fee Payment Students must pay the semester fees before the deadline.",
+                "new_rule": "Fee Payment Students must pay the semester fees before the deadline. A late fee of ₹1000 will be charged after the deadline.",
                 "added_keywords": [
+                    "of",
+                    "₹1000",
+                    "will",
+                    "charged",
+                    "late",
+                    "a",
+                    "be",
+                    "after",
                     "deadline."
                 ],
                 "removed_keywords": [
                     "avoid",
-                    "deadline",
+                    "penalties.",
                     "to",
-                    "penalties."
+                    "deadline"
                 ],
                 "old_numbers": [],
-                "new_numbers": []
-            }
-        ],
-        "Discipline & Conduct": [
-            {
-                "old_rule": "Discipline Students must adhere to university discipline policies. Any misconduct may lead to suspension.",
-                "new_rule": "Discipline Students must adhere to university discipline policies. Severe misconduct may lead to suspension or expulsion.",
-                "added_keywords": [
-                    "expulsion.",
-                    "suspension",
-                    "severe",
-                    "or"
+                "new_numbers": [
+                    "1000"
                 ],
-                "removed_keywords": [
-                    "suspension.",
-                    "any"
-                ],
-                "old_numbers": [],
-                "new_numbers": []
+                "predicted_cause": "to compensate for administrative overhead and operational expenses | to compensate for administrative overhead and operational expenses | to ensure financial sustainability, manage institutional costs, and support infrastructure development"
             }
         ]
     },
     "numerical_changes": {
-        "Examinations & Evaluation": [],
+        "Discipline & Conduct": [
+            {
+                "old_rule": "Attendance Students must maintain at least 75% attendance in each course to be eligible for appearing in the final examination.",
+                "new_rule": "Attendance Students must maintain at least 80% attendance in each course to be eligible for appearing in the final examination.",
+                "added_keywords": [
+                    "80%"
+                ],
+                "removed_keywords": [
+                    "75%"
+                ],
+                "old_numbers": [
+                    "75"
+                ],
+                "new_numbers": [
+                    "80"
+                ],
+                "predicted_cause": "to reduce absenteeism and ensure students meet minimum academic engagement standards | to reduce absenteeism and ensure students meet minimum academic engagement standards | to reduce absenteeism and ensure students meet minimum academic engagement standards"
+            }
+        ],
+        "Examinations & Evaluation": [
+            {
+                "old_rule": "The weightage of CAT is 40% and FAT is 60%.",
+                "new_rule": "The weightage of CAT is 30%, assignments 20%, and FAT is 50%.",
+                "added_keywords": [
+                    "30%,",
+                    "50%.",
+                    "20%,",
+                    "assignments"
+                ],
+                "removed_keywords": [
+                    "60%.",
+                    "40%"
+                ],
+                "old_numbers": [
+                    "40",
+                    "60"
+                ],
+                "new_numbers": [
+                    "30",
+                    "20",
+                    "50"
+                ],
+                "predicted_cause": "to improve assessment fairness, reduce over-dependence on final exams, and promote continuous learning | to align evaluation with modern education practices and industry expectations | to better measure student performance across multiple dimensions like assignments and projects"
+            }
+        ],
         "Academics & Curriculum": [],
-        "Finance & Fees": [],
-        "Discipline & Conduct": []
+        "Finance & Fees": [
+            {
+                "old_rule": "Fee Payment Students must pay the semester fees before the deadline to avoid penalties.",
+                "new_rule": "Fee Payment Students must pay the semester fees before the deadline. A late fee of ₹1000 will be charged after the deadline.",
+                "added_keywords": [
+                    "of",
+                    "₹1000",
+                    "will",
+                    "charged",
+                    "late",
+                    "a",
+                    "be",
+                    "after",
+                    "deadline."
+                ],
+                "removed_keywords": [
+                    "avoid",
+                    "penalties.",
+                    "to",
+                    "deadline"
+                ],
+                "old_numbers": [],
+                "new_numbers": [
+                    "1000"
+                ],
+                "predicted_cause": "to compensate for administrative overhead and operational expenses | to compensate for administrative overhead and operational expenses | to ensure financial sustainability, manage institutional costs, and support infrastructure development"
+            }
+        ]
     }
 }
