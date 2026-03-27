@@ -1,115 +1,65 @@
 import re
 import spacy
-from sentence_transformers import SentenceTransformer, util
 
-# Load models
 nlp = spacy.load("en_core_web_sm")
-model = SentenceTransformer('all-MiniLM-L6-v2')
 
-# Reference sentence (what a "good rule" looks like)
-REFERENCE_SENTENCE = "Students must maintain minimum attendance and follow academic regulations"
+def remove_table_of_contents(text):
+    """
+    Removes large TOC blocks like:
+    PAGE NOS. Preamble Scope Admission ...
+    """
+    # Remove everything between PAGE NOS and first real section
+    text = re.sub(
+        r'PAGE NOS\..*?Preamble',
+        'Preamble',
+        text,
+        flags=re.IGNORECASE | re.DOTALL
+    )
+    return text
 
-ref_embedding = model.encode(REFERENCE_SENTENCE, convert_to_tensor=True)
+
+def remove_numbered_index(text):
+    """
+    Removes patterns like:
+    1.0 Preamble 2.0 Scope 3.0 Admission ...
+    """
+    return re.sub(r'(\d+\.\d+\s+[A-Za-z]+\s*){3,}', '', text)
 
 
-# ==============================
-# RULE-BASED CLEANING
-# ==============================
+def remove_headers(text):
+    text = re.sub(r'FFCS Academic Regulations.*?Version.*?\d+\.\d+', '', text, flags=re.IGNORECASE)
+    return text
 
-def basic_cleaning(lines):
+
+def remove_long_garbage_lines(text):
+    """
+    Removes very long non-sentence blocks (like TOC)
+    """
+    lines = text.split("\n")
     cleaned = []
 
     for line in lines:
-        line = line.strip()
-
-        if not line:
+        if len(line.split()) > 80:  # very long = likely garbage
             continue
-
-        # ❌ Remove headers / repeated text
-        if "ffcs academic regulations" in line.lower():
-            continue
-
-        # ❌ Remove version / page artifacts
-        if "version" in line.lower():
-            continue
-
-        # ❌ Remove table of contents
-        if "contents" in line.lower() or "page nos" in line.lower():
-            continue
-
-        # ❌ Remove pure numbers
-        if re.match(r'^\d+$', line):
-            continue
-
-        # ❌ Remove noisy table rows
-        if len(line.split()) > 40:
-            continue
-
         cleaned.append(line)
 
-    return cleaned
+    return "\n".join(cleaned)
 
-
-# ==============================
-# NLP + ML FILTERING
-# ==============================
-
-def is_meaningful_sentence(sentence):
-    sentence = sentence.strip()
-
-    # ❌ Too short
-    if len(sentence.split()) < 6:
-        return False
-
-    # ❌ Starts with weak reference words
-    if sentence.lower().startswith(("such", "this", "these", "those", "it")):
-        return False
-
-    # ❌ No verb (not a proper sentence)
-    doc = nlp(sentence)
-    has_verb = any(token.pos_ == "VERB" for token in doc)
-    if not has_verb:
-        return False
-
-    # ❌ No subject
-    has_subject = any(token.dep_ in ("nsubj", "nsubjpass") for token in doc)
-    if not has_subject:
-        return False
-
-    # ✅ Semantic similarity check
-    sentence_embedding = model.encode(sentence, convert_to_tensor=True)
-    similarity = util.cos_sim(sentence_embedding, ref_embedding).item()
-
-    # Threshold (tuneable)
-    if similarity < 0.3:
-        return False
-
-    return True
-
-
-# ==============================
-# FINAL CLEAN FUNCTION
-# ==============================
 
 def clean_text(text):
-    # Step 1: Split into lines
-    lines = text.split("\n")
+    # STEP 1: remove TOC globally
+    text = remove_table_of_contents(text)
 
-    # Step 2: Basic cleaning
-    lines = basic_cleaning(lines)
+    # STEP 2: remove numbered index patterns
+    text = remove_numbered_index(text)
 
-    # Step 3: Merge lines into sentences
-    text = " ".join(lines)
-    doc = nlp(text)
+    # STEP 3: remove headers
+    text = remove_headers(text)
 
-    # Step 4: Extract sentences
-    sentences = [sent.text.strip() for sent in doc.sents]
+    # STEP 4: remove long garbage lines
+    text = remove_long_garbage_lines(text)
 
-    # Step 5: ML filtering
-    final_sentences = []
+    # STEP 5: normalize spaces
+    text = re.sub(r'\s+', ' ', text)
 
-    for sentence in sentences:
-        if is_meaningful_sentence(sentence):
-            final_sentences.append(sentence)
-
-    return " ".join(final_sentences)
+    return text.strip()

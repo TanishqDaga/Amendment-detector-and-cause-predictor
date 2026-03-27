@@ -1,0 +1,112 @@
+{
+    "summary": {
+        "total_added": 2,
+        "total_deleted": 0,
+        "total_modified": 3
+    },
+    "sector_wise_changes": {
+        "Examinations & Evaluation": {
+            "added": [],
+            "deleted": [],
+            "modified": []
+        },
+        "Academics & Curriculum": {
+            "added": [],
+            "deleted": [],
+            "modified": [
+                {
+                    "old": "Registration Students must register for courses at the beginning of each semester through the academic portal.",
+                    "new": "Registration Students must register for courses at the beginning of each semester through the academic portal. Late registration is allowed with a penalty fee.",
+                    "similarity": 0.7587504386901855
+                }
+            ]
+        },
+        "Finance & Fees": {
+            "added": [
+                "A late fee of ₹1000 will be charged after the deadline.",
+                "Scholarship Eligible students may receive merit-based scholarships based on academic performance."
+            ],
+            "deleted": [],
+            "modified": [
+                {
+                    "old": "Fee Payment Students must pay the semester fees before the deadline to avoid penalties.",
+                    "new": "Fee Payment Students must pay the semester fees before the deadline.",
+                    "similarity": 0.9615001678466797
+                }
+            ]
+        },
+        "Discipline & Conduct": {
+            "added": [],
+            "deleted": [],
+            "modified": [
+                {
+                    "old": "Discipline Students must adhere to university discipline policies. Any misconduct may lead to suspension.",
+                    "new": "Discipline Students must adhere to university discipline policies. Severe misconduct may lead to suspension or expulsion.",
+                    "similarity": 0.963695764541626
+                }
+            ]
+        }
+    },
+    "analysis": {
+        "Examinations & Evaluation": [],
+        "Academics & Curriculum": [
+            {
+                "old_rule": "Registration Students must register for courses at the beginning of each semester through the academic portal.",
+                "new_rule": "Registration Students must register for courses at the beginning of each semester through the academic portal. Late registration is allowed with a penalty fee.",
+                "added_keywords": [
+                    "is",
+                    "with",
+                    "penalty",
+                    "late",
+                    "allowed",
+                    "fee.",
+                    "a"
+                ],
+                "removed_keywords": [],
+                "old_numbers": [],
+                "new_numbers": []
+            }
+        ],
+        "Finance & Fees": [
+            {
+                "old_rule": "Fee Payment Students must pay the semester fees before the deadline to avoid penalties.",
+                "new_rule": "Fee Payment Students must pay the semester fees before the deadline.",
+                "added_keywords": [
+                    "deadline."
+                ],
+                "removed_keywords": [
+                    "avoid",
+                    "deadline",
+                    "to",
+                    "penalties."
+                ],
+                "old_numbers": [],
+                "new_numbers": []
+            }
+        ],
+        "Discipline & Conduct": [
+            {
+                "old_rule": "Discipline Students must adhere to university discipline policies. Any misconduct may lead to suspension.",
+                "new_rule": "Discipline Students must adhere to university discipline policies. Severe misconduct may lead to suspension or expulsion.",
+                "added_keywords": [
+                    "expulsion.",
+                    "suspension",
+                    "severe",
+                    "or"
+                ],
+                "removed_keywords": [
+                    "suspension.",
+                    "any"
+                ],
+                "old_numbers": [],
+                "new_numbers": []
+            }
+        ]
+    },
+    "numerical_changes": {
+        "Examinations & Evaluation": [],
+        "Academics & Curriculum": [],
+        "Finance & Fees": [],
+        "Discipline & Conduct": []
+    }
+}
