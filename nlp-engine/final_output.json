@@ -1,266 +1,230 @@
 {
     "summary": {
-        "total_added": 1,
-        "total_deleted": 0,
-        "total_modified": 6
+        "total_added": 7,
+        "total_deleted": 13,
+        "total_modified": 15
     },
     "sector_wise_changes": {
-        "Discipline & Conduct": {
-            "added": [],
-            "deleted": [],
+        "Academics & Curriculum": {
+            "added": [
+                "Overloading up to 3 credits is allowed with approval.",
+                "Digital Learning \nOnline learning platforms and recorded lectures will be provided to students for flexible  learning."
+            ],
+            "deleted": [
+                "Attendance will be monitored continuously  throughout the semester.",
+                "The internship must be approved by the department.",
+                "Scholarships are subject to availability of funds.",
+                "Hostel Facilities \nStudents may avail hostel facilities subject to availability."
+            ],
             "modified": [
                 {
-                    "old": "Attendance Students must maintain at least 75% attendance in each course to be eligible for appearing in the final examination.",
-                    "new": "Attendance Students must maintain at least 80% attendance in each course to be eligible for appearing in the final examination.",
-                    "similarity": 0.9741254448890686
+                    "old": "Attendance \nStudents must maintain at least 75% attendance in each course to be eligible for  appearing in the final examination.",
+                    "new": "Attendance \nStudents must maintain at least 80% attendance in each course to be eligible for  appearing in the final examination.",
+                    "similarity": 0.9741,
+                    "old_numbers": [
+                        "75"
+                    ],
+                    "new_numbers": [
+                        "80"
+                    ],
+                    "predicted_cause": "to improve learning outcomes and reduce absenteeism across courses | due to poor student attendance, low classroom engagement, and the need to improve academic discipline | to ensure students actively participate in learning and meet minimum academic requirements"
                 },
                 {
-                    "old": "Discipline Students must adhere to university discipline policies. Any misconduct may lead to suspension.",
-                    "new": "Discipline Students must adhere to university discipline policies. Severe misconduct may lead to suspension or expulsion.",
-                    "similarity": 0.9636955857276917
+                    "old": "Students with attendance below 75% will not be permitted to  sit for exams.",
+                    "new": "Students  below 80% attendance may be allowed for exams under special approval.",
+                    "similarity": 0.7389,
+                    "old_numbers": [
+                        "75"
+                    ],
+                    "new_numbers": [
+                        "80"
+                    ],
+                    "predicted_cause": "to improve learning outcomes and reduce absenteeism across courses | due to poor student attendance, low classroom engagement, and the need to improve academic discipline | to ensure students actively participate in learning and meet minimum academic requirements"
+                },
+                {
+                    "old": "Course Registration \nStudents must register for courses at the beginning of each semester through the  academic portal.",
+                    "new": "Course Registration \nStudents must register for courses through the academic portal.",
+                    "similarity": 0.9525,
+                    "old_numbers": [],
+                    "new_numbers": [],
+                    "predicted_cause": "to allow late applicants to register while enforcing penalties for delays | to handle registration overload and ensure fair access to courses | to provide flexibility for students while ensuring administrative control"
+                },
+                {
+                    "old": "Credit Limits \nStudents must register for a minimum of 16 credits and a maximum of 27 credits per  semester.",
+                    "new": "Credit Limits \nStudents must register for a minimum of 18 credits and a maximum of 30 credits per  semester.",
+                    "similarity": 0.9871,
+                    "old_numbers": [
+                        "16",
+                        "27"
+                    ],
+                    "new_numbers": [
+                        "18",
+                        "30"
+                    ],
+                    "predicted_cause": "to improve overall system efficiency"
+                },
+                {
+                    "old": "Internship \nStudents must complete a mandatory internship of at least 6 weeks before graduation.",
+                    "new": "Internship \nStudents must complete a mandatory internship of at least 8 weeks before graduation.",
+                    "similarity": 0.9966,
+                    "old_numbers": [
+                        "6"
+                    ],
+                    "new_numbers": [
+                        "8"
+                    ],
+                    "predicted_cause": "to improve overall system efficiency"
+                },
+                {
+                    "old": "Course Withdrawal \nStudents may withdraw from a course within the first 8 weeks of the semester with  approval from the faculty advisor.",
+                    "new": "Course Withdrawal \nStudents may withdraw from a course within the first 6 weeks of the semester.",
+                    "similarity": 0.9633,
+                    "old_numbers": [
+                        "8"
+                    ],
+                    "new_numbers": [
+                        "6"
+                    ],
+                    "predicted_cause": "to improve overall system efficiency"
                 }
             ]
         },
         "Examinations & Evaluation": {
-            "added": [],
-            "deleted": [],
+            "added": [
+                "Strict action including  debarment and grade cancellation will be taken."
+            ],
+            "deleted": [
+                "Students must pass both CAT  and FAT independently to pass the course.",
+                "GPA and CGPA will be calculated based on credits and grades  obtained.",
+                "Any student found  cheating will be debarred from the exam.",
+                "Re-evaluation \nStudents may apply for re-evaluation within 5 days of result declaration."
+            ],
             "modified": [
                 {
-                    "old": "The evaluation consists of Continuous Assessment Tests (CAT) and Final Assessment Test (FAT).",
-                    "new": "The evaluation consists of Continuous Assessment Tests (CAT), assignments, and Final Assessment Test (FAT).",
-                    "similarity": 0.973158061504364
+                    "old": "Evaluation \nThe evaluation consists of Continuous Assessment Tests (CAT) and Final Assessment \nTest (FAT).",
+                    "new": "Evaluation \nThe evaluation consists of Continuous Assessment Tests (CAT), assignments, quizzes,  and Final Assessment Test (FAT).",
+                    "similarity": 0.9624,
+                    "old_numbers": [],
+                    "new_numbers": [],
+                    "predicted_cause": "to improve fairness in assessment and reduce dependency on final exams | to align evaluation with modern academic practices | to better evaluate students through continuous assessment methods"
                 },
                 {
                     "old": "The weightage of CAT is 40% and FAT is 60%.",
-                    "new": "The weightage of CAT is 30%, assignments 20%, and FAT is 50%.",
-                    "similarity": 0.9305648803710938
+                    "new": "The weightage of CAT is 30%, assignments 20%,  quizzes 10%, and FAT is 40%.",
+                    "similarity": 0.8767,
+                    "old_numbers": [
+                        "40",
+                        "60"
+                    ],
+                    "new_numbers": [
+                        "30",
+                        "20",
+                        "10",
+                        "40"
+                    ],
+                    "predicted_cause": "to improve fairness in assessment and reduce dependency on final exams | to better evaluate students through continuous assessment methods | to align evaluation with modern academic practices"
+                },
+                {
+                    "old": "Grading System \nGrades will be awarded based on performance in CAT and FAT.",
+                    "new": "Grading System \nGrades will be awarded based on overall performance including assignments and  quizzes.",
+                    "similarity": 0.7585,
+                    "old_numbers": [],
+                    "new_numbers": [],
+                    "predicted_cause": "to improve fairness in assessment and reduce dependency on final exams | to better evaluate students through continuous assessment methods | to align evaluation with modern academic practices"
+                },
+                {
+                    "old": "The grading scale ranges  from S, A, B, C, D, E, to F.",
+                    "new": "The grading scale remains S, A, B, C, D, E, F, but relative grading may be  applied.",
+                    "similarity": 0.8678,
+                    "old_numbers": [],
+                    "new_numbers": [],
+                    "predicted_cause": "to improve overall system efficiency"
+                },
+                {
+                    "old": "Scholarship \nMerit-based scholarships will be awarded to students with CGPA above 9.",
+                    "new": "Scholarship \nMerit-based scholarships will be awarded to students with CGPA above 8.",
+                    "similarity": 0.9664,
+                    "old_numbers": [
+                        "9."
+                    ],
+                    "new_numbers": [
+                        "8."
+                    ],
+                    "predicted_cause": "to improve overall system efficiency"
+                },
+                {
+                    "old": "Result Declaration \nResults will be declared within 2 weeks after completion of final examinations.",
+                    "new": "Result Declaration \nResults will be declared within 10 days after completion of final examinations.",
+                    "similarity": 0.9774,
+                    "old_numbers": [
+                        "2"
+                    ],
+                    "new_numbers": [
+                        "10"
+                    ],
+                    "predicted_cause": "to improve overall system efficiency"
+                },
+                {
+                    "old": "Academic Probation \nStudents with CGPA below 5.0 will be placed under academic probation.",
+                    "new": "Academic Probation \nStudents with CGPA below 5.5 will be placed under academic probation and must  attend remedial classes.",
+                    "similarity": 0.9419,
+                    "old_numbers": [
+                        "5.0"
+                    ],
+                    "new_numbers": [
+                        "5.5"
+                    ],
+                    "predicted_cause": "to improve overall system efficiency"
                 }
             ]
         },
-        "Academics & Curriculum": {
-            "added": [],
-            "deleted": [],
-            "modified": [
-                {
-                    "old": "Registration Students must register for courses at the beginning of each semester through the academic portal.",
-                    "new": "Registration Students must register for courses at the beginning of each semester through the academic portal. Late registration is allowed with a penalty fee.",
-                    "similarity": 0.7587505578994751
-                }
-            ]
+        "Admissions & Registration": {
+            "added": [
+                "Late registration is  allowed with a penalty fee of ₹"
+            ],
+            "deleted": [
+                "Registration must be completed within the announced registration  window.",
+                "Overloading is not permitted under any circumstances.",
+                "Failure to  pay fees will result in registration hold."
+            ],
+            "modified": []
         },
         "Finance & Fees": {
             "added": [
-                "Scholarship Eligible students may receive merit-based scholarships based on academic performance."
+                "A late fee of ₹2000 will be  charged after the deadline.",
+                "Re-evaluation \nStudents may apply for re-evaluation within 3 days of result declaration with a  processing fee."
             ],
-            "deleted": [],
+            "deleted": [
+                "Hostel fees must be paid  separately."
+            ],
             "modified": [
                 {
-                    "old": "Fee Payment Students must pay the semester fees before the deadline to avoid penalties.",
-                    "new": "Fee Payment Students must pay the semester fees before the deadline. A late fee of ₹1000 will be charged after the deadline.",
-                    "similarity": 0.8619405627250671
+                    "old": "Fee Payment \nStudents must pay the semester fees before the deadline to avoid penalties.",
+                    "new": "Fee Payment \nStudents must pay the semester fees before the deadline.",
+                    "similarity": 0.9615,
+                    "old_numbers": [],
+                    "new_numbers": [],
+                    "predicted_cause": "to compensate for administrative and operational costs | to maintain financial sustainability and support institutional operations | to ensure timely fee collection and discourage delays in payment"
+                }
+            ]
+        },
+        "Discipline & Conduct": {
+            "added": [
+                "Hostel allocation will be based on availability and  discipline record."
+            ],
+            "deleted": [
+                "Students must follow the code of conduct within campus."
+            ],
+            "modified": [
+                {
+                    "old": "Any misconduct may lead to  suspension.",
+                    "new": "Severe misconduct may lead to  suspension or expulsion.",
+                    "similarity": 0.8965,
+                    "old_numbers": [],
+                    "new_numbers": [],
+                    "predicted_cause": "to maintain campus safety and ensure accountability among students | to introduce stronger penalties to prevent repeated violations | to enforce stricter behavioral standards and deter serious misconduct"
                 }
             ]
         }
-    },
-    "analysis": {
-        "Discipline & Conduct": [
-            {
-                "old_rule": "Attendance Students must maintain at least 75% attendance in each course to be eligible for appearing in the final examination.",
-                "new_rule": "Attendance Students must maintain at least 80% attendance in each course to be eligible for appearing in the final examination.",
-                "added_keywords": [
-                    "80%"
-                ],
-                "removed_keywords": [
-                    "75%"
-                ],
-                "old_numbers": [
-                    "75"
-                ],
-                "new_numbers": [
-                    "80"
-                ],
-                "predicted_cause": "to reduce absenteeism and ensure students meet minimum academic engagement standards | to reduce absenteeism and ensure students meet minimum academic engagement standards | to reduce absenteeism and ensure students meet minimum academic engagement standards"
-            },
-            {
-                "old_rule": "Discipline Students must adhere to university discipline policies. Any misconduct may lead to suspension.",
-                "new_rule": "Discipline Students must adhere to university discipline policies. Severe misconduct may lead to suspension or expulsion.",
-                "added_keywords": [
-                    "suspension",
-                    "expulsion.",
-                    "severe",
-                    "or"
-                ],
-                "removed_keywords": [
-                    "any",
-                    "suspension."
-                ],
-                "old_numbers": [],
-                "new_numbers": [],
-                "predicted_cause": "to compensate for administrative overhead and operational expenses | to ensure financial sustainability, manage institutional costs, and support infrastructure development | to ensure financial sustainability, manage institutional costs, and support infrastructure development"
-            }
-        ],
-        "Examinations & Evaluation": [
-            {
-                "old_rule": "The evaluation consists of Continuous Assessment Tests (CAT) and Final Assessment Test (FAT).",
-                "new_rule": "The evaluation consists of Continuous Assessment Tests (CAT), assignments, and Final Assessment Test (FAT).",
-                "added_keywords": [
-                    "assignments,",
-                    "(cat),"
-                ],
-                "removed_keywords": [
-                    "(cat)"
-                ],
-                "old_numbers": [],
-                "new_numbers": [],
-                "predicted_cause": "to better measure student performance across multiple dimensions like assignments and projects | to better measure student performance across multiple dimensions like assignments and projects | to improve assessment fairness, reduce over-dependence on final exams, and promote continuous learning"
-            },
-            {
-                "old_rule": "The weightage of CAT is 40% and FAT is 60%.",
-                "new_rule": "The weightage of CAT is 30%, assignments 20%, and FAT is 50%.",
-                "added_keywords": [
-                    "30%,",
-                    "50%.",
-                    "20%,",
-                    "assignments"
-                ],
-                "removed_keywords": [
-                    "60%.",
-                    "40%"
-                ],
-                "old_numbers": [
-                    "40",
-                    "60"
-                ],
-                "new_numbers": [
-                    "30",
-                    "20",
-                    "50"
-                ],
-                "predicted_cause": "to improve assessment fairness, reduce over-dependence on final exams, and promote continuous learning | to align evaluation with modern education practices and industry expectations | to better measure student performance across multiple dimensions like assignments and projects"
-            }
-        ],
-        "Academics & Curriculum": [
-            {
-                "old_rule": "Registration Students must register for courses at the beginning of each semester through the academic portal.",
-                "new_rule": "Registration Students must register for courses at the beginning of each semester through the academic portal. Late registration is allowed with a penalty fee.",
-                "added_keywords": [
-                    "fee.",
-                    "is",
-                    "late",
-                    "penalty",
-                    "a",
-                    "with",
-                    "allowed"
-                ],
-                "removed_keywords": [],
-                "old_numbers": [],
-                "new_numbers": [],
-                "predicted_cause": "to compensate for administrative overhead and operational expenses | to ensure financial sustainability, manage institutional costs, and support infrastructure development | to discourage late payments and ensure timely fee collection"
-            }
-        ],
-        "Finance & Fees": [
-            {
-                "old_rule": "Fee Payment Students must pay the semester fees before the deadline to avoid penalties.",
-                "new_rule": "Fee Payment Students must pay the semester fees before the deadline. A late fee of ₹1000 will be charged after the deadline.",
-                "added_keywords": [
-                    "of",
-                    "₹1000",
-                    "will",
-                    "charged",
-                    "late",
-                    "a",
-                    "be",
-                    "after",
-                    "deadline."
-                ],
-                "removed_keywords": [
-                    "avoid",
-                    "penalties.",
-                    "to",
-                    "deadline"
-                ],
-                "old_numbers": [],
-                "new_numbers": [
-                    "1000"
-                ],
-                "predicted_cause": "to compensate for administrative overhead and operational expenses | to compensate for administrative overhead and operational expenses | to ensure financial sustainability, manage institutional costs, and support infrastructure development"
-            }
-        ]
-    },
-    "numerical_changes": {
-        "Discipline & Conduct": [
-            {
-                "old_rule": "Attendance Students must maintain at least 75% attendance in each course to be eligible for appearing in the final examination.",
-                "new_rule": "Attendance Students must maintain at least 80% attendance in each course to be eligible for appearing in the final examination.",
-                "added_keywords": [
-                    "80%"
-                ],
-                "removed_keywords": [
-                    "75%"
-                ],
-                "old_numbers": [
-                    "75"
-                ],
-                "new_numbers": [
-                    "80"
-                ],
-                "predicted_cause": "to reduce absenteeism and ensure students meet minimum academic engagement standards | to reduce absenteeism and ensure students meet minimum academic engagement standards | to reduce absenteeism and ensure students meet minimum academic engagement standards"
-            }
-        ],
-        "Examinations & Evaluation": [
-            {
-                "old_rule": "The weightage of CAT is 40% and FAT is 60%.",
-                "new_rule": "The weightage of CAT is 30%, assignments 20%, and FAT is 50%.",
-                "added_keywords": [
-                    "30%,",
-                    "50%.",
-                    "20%,",
-                    "assignments"
-                ],
-                "removed_keywords": [
-                    "60%.",
-                    "40%"
-                ],
-                "old_numbers": [
-                    "40",
-                    "60"
-                ],
-                "new_numbers": [
-                    "30",
-                    "20",
-                    "50"
-                ],
-                "predicted_cause": "to improve assessment fairness, reduce over-dependence on final exams, and promote continuous learning | to align evaluation with modern education practices and industry expectations | to better measure student performance across multiple dimensions like assignments and projects"
-            }
-        ],
-        "Academics & Curriculum": [],
-        "Finance & Fees": [
-            {
-                "old_rule": "Fee Payment Students must pay the semester fees before the deadline to avoid penalties.",
-                "new_rule": "Fee Payment Students must pay the semester fees before the deadline. A late fee of ₹1000 will be charged after the deadline.",
-                "added_keywords": [
-                    "of",
-                    "₹1000",
-                    "will",
-                    "charged",
-                    "late",
-                    "a",
-                    "be",
-                    "after",
-                    "deadline."
-                ],
-                "removed_keywords": [
-                    "avoid",
-                    "penalties.",
-                    "to",
-                    "deadline"
-                ],
-                "old_numbers": [],
-                "new_numbers": [
-                    "1000"
-                ],
-                "predicted_cause": "to compensate for administrative overhead and operational expenses | to compensate for administrative overhead and operational expenses | to ensure financial sustainability, manage institutional costs, and support infrastructure development"
-            }
-        ]
     }
 }

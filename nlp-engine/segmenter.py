@@ -1,48 +1,58 @@
 import re
-import spacy
-
-nlp = spacy.load("en_core_web_sm")
 
 
-def is_new_rule(sentence):
-    sentence_lower = sentence.lower()
+def protect_decimals(text):
+    """
+    Replace decimal points with placeholder
+    Example: 5.0 → 5<dot>0
+    """
+    return re.sub(r'(\d)\.(\d)', r'\1<dot>\2', text)
 
-    if any(word in sentence_lower for word in [
-        "must", "shall", "should", "required", "eligible"
-    ]):
-        return True
 
-    if re.match(r'^(the|students|evaluation|attendance|registration|fee)', sentence_lower):
-        return True
-
-    return False
+def restore_decimals(text):
+    """
+    Restore decimal points
+    """
+    return text.replace("<dot>", ".")
 
 
 def segment_rules(text):
-    text = re.sub(r'\s+', ' ', text)
+    # -----------------------------
+    # STEP 0: Protect decimals
+    # -----------------------------
+    text = protect_decimals(text)
 
-    doc = nlp(text)
+    # -----------------------------
+    # STEP 1: Split by section numbers
+    # -----------------------------
+    sections = re.split(r'\n\d+\.\s*', text)
 
     rules = []
-    current_rule = ""
 
-    for sent in doc.sents:
-        sentence = sent.text.strip()
-
-        # remove headings
-        sentence = re.sub(r'^\d+\.\s*[A-Za-z]+\s*', '', sentence)
-
-        if len(sentence.split()) < 5:
+    for section in sections:
+        section = section.strip()
+        if not section:
             continue
 
-        if is_new_rule(sentence):
-            if current_rule:
-                rules.append(current_rule.strip())
-            current_rule = sentence
-        else:
-            current_rule += " " + sentence
+        # -----------------------------
+        # STEP 2: Sentence splitting
+        # -----------------------------
+        sentences = re.split(r'(?<=[.!?])\s+', section)
 
-    if current_rule:
-        rules.append(current_rule.strip())
+        for sent in sentences:
+            sent = sent.strip()
 
-    return [r for r in rules if len(r.split()) > 8]
+            # Restore decimals
+            sent = restore_decimals(sent)
+
+            # Skip short junk
+            if len(sent.split()) < 6:
+                continue
+
+            # Remove pure headings
+            if re.match(r'^[A-Za-z\s]+$', sent) and len(sent.split()) < 5:
+                continue
+
+            rules.append(sent)
+
+    return rules

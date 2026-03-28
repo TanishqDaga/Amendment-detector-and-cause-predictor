@@ -1,38 +1,78 @@
-from similarity import match_rules
+from sentence_transformers import SentenceTransformer, util
+import re
+
+model = SentenceTransformer('all-MiniLM-L6-v2')
+
+
+def extract_numbers(text):
+    return re.findall(r'\d+\.?\d*', text)
 
 
 def detect_changes_sectorwise(old_data, new_data):
-    final_output = {}
+    result = {}
+
+    total_added = 0
+    total_deleted = 0
+    total_modified = 0
 
     for sector in old_data.keys():
         old_rules = old_data.get(sector, [])
         new_rules = new_data.get(sector, [])
 
-        matches, used_new = match_rules(old_rules, new_rules)
+        used = set()
 
+        modified = []
         added = []
         deleted = []
-        modified = []
 
-        for i, j, score in matches:
-            old = old_rules[i]
-            new = new_rules[j]
+        for old in old_rules:
+            best_match = None
+            best_score = 0
 
-            if score < 0.98:
-                modified.append({
-                    "old": old,
-                    "new": new,
-                    "similarity": score
-                })
+            for i, new in enumerate(new_rules):
+                if i in used:
+                    continue
 
-        for j, rule in enumerate(new_rules):
-            if j not in used_new:
-                added.append(rule)
+                score = util.cos_sim(
+                    model.encode(old, convert_to_tensor=True),
+                    model.encode(new, convert_to_tensor=True)
+                ).item()
 
-        final_output[sector] = {
+                if score > best_score:
+                    best_score = score
+                    best_match = (i, new)
+
+            if best_score > 0.7:
+                used.add(best_match[0])
+
+                if old != best_match[1]:
+                    modified.append({
+                        "old": old,
+                        "new": best_match[1],
+                        "similarity": round(best_score, 4),
+                        "old_numbers": extract_numbers(old),
+                        "new_numbers": extract_numbers(best_match[1])
+                    })
+                    total_modified += 1
+            else:
+                deleted.append(old)
+                total_deleted += 1
+
+        for i, new in enumerate(new_rules):
+            if i not in used:
+                added.append(new)
+                total_added += 1
+
+        result[sector] = {
             "added": added,
             "deleted": deleted,
             "modified": modified
         }
 
-    return final_output
+    summary = {
+        "total_added": total_added,
+        "total_deleted": total_deleted,
+        "total_modified": total_modified
+    }
+
+    return summary, result

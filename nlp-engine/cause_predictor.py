@@ -16,17 +16,17 @@ with open(dataset_path, "r") as f:
 embeddings = torch.load(embedding_path)
 
 
+from intent_detector import detect_intent
+from cause_knowledge import CAUSE_KB
+import random
+
+
 def predict_cause(old_rule, new_rule):
-    query = old_rule + " " + new_rule
-    query_emb = model.encode(query, convert_to_tensor=True)
+    intent = detect_intent(old_rule, new_rule)
 
-    scores = util.cos_sim(query_emb, embeddings)[0]
+    causes = CAUSE_KB.get(intent, ["to improve overall system efficiency"])
 
-    # 🔥 TOP 3 causes
-    top_k = scores.topk(3)
+    # pick 2–3 causes (no repetition)
+    selected = random.sample(causes, min(3, len(causes)))
 
-    causes = []
-    for idx in top_k.indices:
-        causes.append(dataset[idx]["label"])
-
-    return " | ".join(causes)
+    return " | ".join(selected)
