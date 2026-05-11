@@ -37,7 +37,7 @@ This project solves that problem using a hybrid NLP architecture capable of unde
 
 # 🏗️ System Architecture
 
-![Architecture](assets/architecture.png)
+![Architecture](assets/Architecture.png)
 
 ---
 
