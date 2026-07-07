@@ -69,7 +69,7 @@ The patented system introduces an intelligent NLP pipeline capable of:
 
 # 🏗️ Patented System Architecture
 
-![Architecture](assets/Architecture.png)
+![Architecture](assests/Architecture.png)
 
 The architecture consists of multiple NLP modules working together to process two versions of regulatory documents and generate explainable amendment reports.
 
