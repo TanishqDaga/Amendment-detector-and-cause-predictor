@@ -1,100 +1,143 @@
 # NLP-Based Regulatory Document Change Detection System
 
-An intelligent **Natural Language Processing (NLP)** framework designed to compare two versions of policy, regulation, or rule-based documents and automatically detect:
+> 📜 **Published Indian Patent Application**
+>
+> **Patent Title:** *System and Method for Amendment Detection and Analysis for Regulatory Documents*
+>
+> **Application Number:** **202641076170**
+>
+> **Publication Year:** **2026**
 
-- Added rules
-- Deleted rules
-- Modified rules
-- Numerical changes
-- Intent behind modifications
-- Predicted causes for amendments
+An intelligent **Natural Language Processing (NLP)** framework for automatically detecting, analyzing, and explaining amendments between different versions of regulatory, legal, academic, and policy documents.
 
-The system combines **rule-based NLP**, **semantic similarity using Sentence-BERT**, and **domain-aware reasoning** to generate explainable insights from evolving documents.
+The patented framework combines **rule-based NLP**, **Sentence-BERT semantic similarity**, **domain-aware reasoning**, and **explainable AI** to identify meaningful document changes beyond traditional text comparison techniques.
 
 ---
 
 # 📌 Project Overview
 
-Organizations frequently update policies, academic regulations, legal rules, and compliance documents. Traditional text comparison methods fail to capture semantic modifications, contextual changes, and numerical updates effectively.
+Regulatory and policy documents are frequently updated across government organizations, universities, enterprises, and legal institutions. Conventional document comparison tools primarily rely on textual differences, making them ineffective in understanding semantic modifications, contextual changes, and numerical amendments.
 
-This project solves that problem using a hybrid NLP architecture capable of understanding meaning rather than relying only on exact textual differences.
+This project introduces a **patented AI-driven amendment detection framework** capable of identifying meaningful changes while also predicting the intent and probable causes behind modifications.
+
+The work has been recognized as a **Published Indian Patent Application** for its novel hybrid approach toward regulatory document analysis.
+
+---
+
+# 📜 Patent Information
+
+**Patent Title**
+
+**System and Method for Amendment Detection and Analysis for Regulatory Documents**
+
+**Application Number**
+
+**202641076170**
+
+### Patent Highlights
+
+The patented system introduces an intelligent NLP pipeline capable of:
+
+- Semantic amendment detection
+- Rule-level comparison
+- Intent prediction
+- Cause prediction
+- Numerical change analysis
+- Domain-aware classification
+- Explainable AI-driven document analysis
+
+> **Note:** This repository contains the research prototype and implementation corresponding to the published patent.
 
 ---
 
 # 🧠 Key Features
 
+- AI-based amendment detection
+- Patent-backed hybrid NLP architecture
 - PDF document extraction
-- Text cleaning and normalization
+- Text normalization
 - Rule-level segmentation
 - Hybrid sector classification
-- Semantic change detection using SBERT
-- Numerical value comparison
-- Intent detection
+- Semantic similarity using Sentence-BERT
+- Numerical change detection
+- Intent identification
 - Cause prediction engine
 - Structured JSON output generation
+- Explainable amendment analysis
 
 ---
 
-# 🏗️ System Architecture
+# 🏗️ Patented System Architecture
 
 ![Architecture](assets/Architecture.png)
+
+The architecture consists of multiple NLP modules working together to process two versions of regulatory documents and generate explainable amendment reports.
 
 ---
 
 # ⚙️ Workflow
 
-## 1. Input Layer – Document Versions
+## 1. Input Layer
 
-The system takes two PDF documents as input:
+The framework accepts two document versions:
 
-- Old Document (PDF)
-- New Document (PDF)
+- Previous Version (PDF)
+- Updated Version (PDF)
 
-These documents may contain:
-- Textual regulations
-- Rules
-- Tables
-- Semi-structured content
-- Numeric policies
+Supported document types include:
+
+- Government regulations
+- University rulebooks
+- Corporate policies
+- Legal documents
+- Financial compliance documents
+- Standard operating procedures
 
 ---
 
 ## 2. Document Extraction Module
 
-This module extracts usable content from PDFs.
+The extraction engine converts PDF documents into machine-readable text.
 
 ### Technologies Used
-- PyMuPDF → Primary text extraction
-- pdfplumber → Fallback extraction
-- OCR (optional) → Diagram/image text extraction
+
+- PyMuPDF
+- pdfplumber
+- OCR (optional)
 
 ### Features
-- Text extraction from all pages
-- Table extraction and conversion into text
-- Robust handling of poorly formatted PDFs
+
+- Multi-page extraction
+- Table extraction
+- Poor formatting recovery
+- Structured text generation
 
 ---
 
 ## 3. Text Cleaning & Normalization
 
-Extracted content is standardized for NLP processing.
+Extracted text is standardized before NLP processing.
 
 ### Operations
-- Regex-based cleaning
-- Removal of irregular formatting
-- Decimal value protection
+
+- Regex cleaning
+- Whitespace normalization
+- Decimal protection
 - Sentence reconstruction
 - Broken line merging
+- Formatting normalization
 
 ### Example
 
-Before:
+Before
+
 ```text
 Minimum attendance
 required is 75 . 0 %
 ```
 
-After:
+After
+
 ```text
 Minimum attendance required is 75.0%
 ```
@@ -106,17 +149,19 @@ Minimum attendance required is 75.0%
 The cleaned document is divided into meaningful rule units.
 
 ### Techniques
-- Section pattern recognition
+
+- Section recognition
+- Pattern matching
 - Sentence segmentation
 - Fragment filtering
 
-### Output
+### Output Example
 
 ```python
 [
-  "Students must maintain 75% attendance.",
-  "Late fee payment attracts penalty.",
-  "Project submission deadline is 6 weeks."
+    "Students must maintain 75% attendance.",
+    "Late fee payment attracts penalty.",
+    "Project submission deadline is 6 weeks."
 ]
 ```
 
@@ -124,250 +169,279 @@ The cleaned document is divided into meaningful rule units.
 
 # 🧠 Hybrid Classification Engine
 
-This is the core intelligence layer of the system.
+One of the key innovations of the patented framework is its hybrid sector classification engine.
 
-It classifies each rule into a domain-specific sector using three complementary approaches.
+The system combines three complementary approaches to maximize classification accuracy.
 
 ---
 
 ## A. Priority Rule Engine
 
-Uses predefined keyword overrides for highly critical terms.
+Critical keywords are assigned predefined categories.
 
-### Example
+Example:
 
 ```python
 {
-   "misconduct": "Discipline",
-   "fee": "Finance"
+    "misconduct": "Discipline",
+    "attendance": "Attendance",
+    "fee": "Finance"
 }
 ```
 
-Ensures important rules are never misclassified.
+This guarantees highly important regulatory rules are classified correctly.
 
 ---
 
 ## B. Keyword Scoring Model
 
-Uses domain-specific keyword dictionaries.
+Domain-specific keyword dictionaries generate weighted scores for every rule.
 
-### Working
-- Counts keyword occurrences
-- Assigns weighted scores
-- Produces category likelihood
+The classifier:
+
+- Counts keyword frequency
+- Assigns category weights
+- Produces confidence scores
 
 ---
 
-## C. SBERT Semantic Similarity Model
+## C. Semantic Classification using Sentence-BERT
 
-Uses Sentence-BERT (`all-MiniLM-L6-v2`) for semantic understanding.
+Sentence-BERT (`all-MiniLM-L6-v2`) provides semantic understanding.
 
-### Process
+Workflow:
+
 - Convert rules into embeddings
 - Convert sector descriptions into embeddings
 - Compute cosine similarity
-- Assign semantic relevance score
+- Generate semantic relevance scores
 
----
+Final Classification:
 
-## Final Sector Assignment
-
-```python
-Final Score = 0.4 * Keyword Score + 0.6 * Semantic Score
+```
+Final Score =
+0.4 × Keyword Score +
+0.6 × Semantic Score
 ```
 
-This hybrid approach improves robustness against paraphrased or rewritten text.
+This hybrid methodology significantly improves robustness against paraphrased regulations.
 
 ---
 
 # 🔍 Semantic Change Detection
 
-This module compares old and new document rules semantically.
+The patented semantic comparison engine detects meaningful modifications between document versions instead of relying on textual differences.
 
-### Method
-- Generate SBERT embeddings
+### Methodology
+
+- Generate Sentence-BERT embeddings
 - Compute cosine similarity
-- Apply similarity threshold
+- Match semantically related rules
+- Apply similarity thresholds
 
-### Outputs
+### Detected Changes
 
-| Change Type | Description |
-|---|---|
-| Added | Present only in new document |
-| Deleted | Present only in old document |
-| Modified | Semantically similar but textually different |
+| Change | Description |
+|---------|-------------|
+| Added | Rule exists only in new version |
+| Deleted | Rule removed from latest version |
+| Modified | Same meaning with textual or numerical differences |
 
 ### Example
 
-Old:
+Old Rule
+
 ```text
 Minimum attendance required is 75%.
 ```
 
-New:
+Updated Rule
+
 ```text
 Minimum attendance required is 80%.
 ```
 
-Detected:
+Output
+
 ```text
 Modified Rule
 ```
 
-Unlike traditional diff systems, this captures meaning-level changes.
+Unlike traditional diff tools, the framework recognizes **semantic amendments** rather than merely textual edits.
 
 ---
 
 # 🔢 Numerical Analysis
 
-Detects quantitative modifications in rules.
+In addition to semantic understanding, the framework performs quantitative analysis to detect numerical modifications within regulatory documents.
 
-### Extracted Elements
+### Supported Numerical Elements
+
 - Percentages
 - Currency values
 - Durations
 - Thresholds
+- Numeric limits
+- Scores
+- Credits
 
-### Examples
+### Example Changes
 
 ```text
-75% → 80%
-₹1000 → ₹2000
+75%  → 80%
+₹1,000 → ₹2,000
 6 weeks → 8 weeks
+20 Credits → 24 Credits
 ```
 
-This ensures critical numerical policy updates are highlighted explicitly.
+This ensures that critical numerical amendments are explicitly highlighted instead of being treated as ordinary text modifications.
 
 ---
 
 # 🎯 Intent Detection
 
-Determines the purpose behind each rule modification.
+The framework determines the purpose behind every detected amendment using rule-based NLP and contextual analysis.
 
-### Technique
-Rule-based keyword matching.
+### Example Intent Categories
 
-### Example Intents
 - Attendance
 - Finance
 - Evaluation
+- Examination
 - Discipline
+- Research
+- Academic Regulations
+- Administration
 
 ### Example
 
-```text
-"Students must pay fee before due date"
+Input Rule
 
-→ Intent: Finance
+```text
+Students must pay the fee before the due date.
 ```
 
-This adds contextual understanding to amendments.
+Detected Intent
+
+```text
+Finance
+```
+
+Intent detection provides contextual understanding that assists administrators in interpreting policy changes.
 
 ---
 
 # 🧩 Cause Prediction Engine
 
-One of the most advanced modules in the system.
+One of the distinguishing innovations of the patented framework is the **Cause Prediction Engine**, which estimates the probable reason behind each amendment.
 
-It transforms raw changes into explainable insights using:
+The engine combines:
+
 - Rule-based reasoning
+- Intent classification
 - Semantic similarity
-- Dataset-driven relevance
+- Knowledge-base matching
+
+to generate explainable amendment insights.
 
 ---
 
 ## Working Pipeline
 
-### 1. Input
-- Old rule
-- New rule
-- Intent label
+### Step 1 — Input
+
+The engine receives:
+
+- Previous Rule
+- Updated Rule
+- Intent Label
 
 ---
 
-### 2. Intent Mapping
-Maps rules to predefined intent categories.
+### Step 2 — Intent Mapping
+
+Each amendment is mapped to a predefined intent category.
 
 ---
 
-### 3. Knowledge Base (CAUSE_KB)
+### Step 3 — Knowledge Base
 
-Maps intents to possible reasons.
+A domain-specific knowledge base associates intents with likely amendment causes.
 
-### Example
+Example
 
 ```python
 CAUSE_KB = {
-   "Attendance": [
-      "Improve discipline",
-      "Increase classroom engagement"
-   ],
-   "Finance": [
-      "Operational cost management",
-      "Ensure timely payment"
-   ]
+    "Attendance": [
+        "Improve discipline",
+        "Increase classroom engagement"
+    ],
+    "Finance": [
+        "Operational cost management",
+        "Ensure timely payments"
+    ]
 }
 ```
 
 ---
 
-### 4. Dataset Support
+### Step 4 — Semantic Knowledge Matching
 
-Uses:
+The framework utilizes:
+
 - `cause_dataset.json`
 - `cause_embeddings.pt`
 
-Generated using Sentence-BERT embeddings.
+generated using Sentence-BERT embeddings.
 
 This enables:
+
 - Context-aware reasoning
-- Better cause prediction accuracy
+- Semantic similarity matching
+- Improved prediction accuracy
 
 ---
 
-### 5. Hybrid Cause Selection
+### Step 5 — Cause Prediction
 
-Combines:
-- Intent filtering
-- Semantic relevance
-- Dataset similarity
+The final prediction combines:
 
-Returns the most probable causes.
+- Intent relevance
+- Semantic similarity
+- Knowledge-base confidence
 
----
+to return the most probable causes.
 
-### Example Outputs
-
-```text
-Attendance increase
-→ Improve discipline
-→ Increase engagement
-```
+Example
 
 ```text
-Fee increase
-→ Operational cost management
-→ Ensure timely payment
+Attendance Increased
+
+Predicted Causes
+
+• Improve discipline
+• Increase engagement
 ```
 
 ---
 
 # 📤 Output Generator
 
-The final module compiles all findings into structured outputs.
+The final module compiles every detected amendment into structured machine-readable reports.
 
-## Output Includes
-- Added rules
-- Deleted rules
-- Modified rules
-- Sector classification
-- Numerical changes
-- Intent labels
-- Predicted causes
+The generated output contains:
+
+- Added Rules
+- Deleted Rules
+- Modified Rules
+- Sector Classification
+- Numerical Changes
+- Intent Labels
+- Predicted Causes
 
 ---
 
-# 📄 JSON Output Example
+# 📄 Example JSON Output
 
 ```json
 {
@@ -388,23 +462,23 @@ The final module compiles all findings into structured outputs.
 
 ---
 
-# 🛠️ Tech Stack
+# 🛠️ Technology Stack
 
 | Component | Technology |
-|---|---|
-| Language | Python |
+|------------|------------|
+| Programming Language | Python |
 | NLP Framework | Sentence-BERT |
 | Embedding Model | all-MiniLM-L6-v2 |
-| PDF Extraction | PyMuPDF, pdfplumber |
+| Machine Learning | PyTorch |
+| PDF Processing | PyMuPDF, pdfplumber |
 | OCR | Tesseract OCR |
 | Similarity Metric | Cosine Similarity |
-| Data Handling | JSON |
-| ML Library | PyTorch |
-| Regex Processing | Python re |
+| Data Format | JSON |
+| Text Processing | Regular Expressions |
 
 ---
 
-# 📂 Suggested Project Structure
+# 📂 Project Structure
 
 ```text
 project/
@@ -425,6 +499,9 @@ project/
 ├── cause_prediction/
 ├── output/
 │
+├── assets/
+│   └── Architecture.png
+│
 ├── main.py
 ├── requirements.txt
 └── README.md
@@ -432,45 +509,110 @@ project/
 
 ---
 
-# 🚀 Future Improvements
+# 🚀 Future Scope
 
-- GUI Dashboard
-- Multi-language support
-- Legal-domain fine-tuned transformers
-- Explainable AI visualization
+Potential future enhancements include:
+
+- Fine-tuned Legal Language Models (LLMs)
+- Multi-language regulatory analysis
+- Cloud-based SaaS deployment
+- Explainable AI dashboards
 - Real-time amendment monitoring
-- Cloud deployment APIs
+- Enterprise compliance integrations
+- Government policy intelligence platform
+- REST API deployment
+- Interactive visualization dashboards
 
 ---
 
 # 📈 Applications
 
-- Academic regulation analysis
-- Legal document comparison
-- Government policy tracking
-- Compliance auditing
-- Financial regulation monitoring
+The patented framework can be applied across multiple domains:
+
+- Government regulation tracking
+- University academic regulation comparison
+- Legal document analysis
 - Corporate policy management
+- Financial compliance monitoring
+- Insurance policy comparison
+- Healthcare regulatory analysis
+- Contract amendment detection
+- Enterprise compliance auditing
 
 ---
 
-# 🤝 Contribution
+# 🏆 Novel Contributions
+
+The patented framework introduces several innovations beyond traditional document comparison systems:
+
+- Hybrid NLP-based semantic amendment detection
+- Rule-level intelligent comparison
+- Domain-aware sector classification
+- Explainable intent prediction
+- AI-assisted cause prediction
+- Numerical amendment analysis
+- Structured JSON report generation
+- Hybrid rule-based and semantic reasoning architecture
+
+---
+
+# 📚 Research Significance
+
+This work demonstrates the application of modern Natural Language Processing techniques to automate regulatory document analysis.
+
+Unlike traditional text-difference approaches, the framework understands the **meaning** behind amendments, making it suitable for real-world compliance, governance, and legal intelligence applications.
+
+---
+
+# 🤝 Contributing
 
 Contributions are welcome.
 
-You can contribute by:
+Possible contribution areas include:
+
 - Improving NLP accuracy
-- Adding new domains
-- Enhancing semantic reasoning
-- Optimizing performance
-- Building frontend dashboards
+- Adding additional regulatory domains
+- Fine-tuning transformer models
+- Optimizing semantic matching
+- Developing web dashboards
+- API integrations
+- Performance optimization
+- Cloud deployment
+
+Please open an Issue or Pull Request for proposed improvements.
 
 ---
 
+# 📜 Patent Citation
 
+If you use this work in academic research or industrial projects, please cite the published patent:
+
+**Tanishq Daga.**  
+*System and Method for Amendment Detection and Analysis for Regulatory Documents.*  
+**Published Indian Patent Application**  
+Application No. **202641076170**  
+India, 2026.
 
 ---
 
 # 👨‍💻 Author
 
-Developed as an NLP-based intelligent document amendment analysis system for semantic policy comparison and explainable change detection.
+**Tanishq Daga**
+
+Computer Science Engineering Student | Full Stack Developer | NLP Researcher
+
+This repository contains the implementation of the methodology presented in the **Published Indian Patent Application**:
+
+**System and Method for Amendment Detection and Analysis for Regulatory Documents**
+
+**Application No.: 202641076170**
+
+The project demonstrates an AI-driven framework for semantic amendment detection, explainable document analysis, intent recognition, numerical comparison, and cause prediction in regulatory documents.
+
+---
+
+## ⭐ Support
+
+If you found this project useful, consider giving it a **⭐ Star** on GitHub.
+
+If this work contributes to your research or development, please cite the published patent and acknowledge the repository.
